@@ -52,7 +52,7 @@
                                                 </div>
                                                 <div class="flex-shrink-0">
                                                     <div class="">
-                                                        <a href="auth-recoverpw-1.html" class="text-muted">Forgot password?</a>
+                                                        <a href="#" class="text-muted">Forgot password?</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                     </form>
 
                                     <div class="mt-5 text-center">
-                                        <p class="text-muted mb-0">Don't have an account ? <a href="auth-register-1.html" class="text-primary fw-semibold"> Signup now </a> </p>
+                                        <p class="text-muted mb-0">No tienes cuenta? <a href="view/registro" class="text-primary fw-semibold"> Registrate </a> </p>
                                     </div>
                                 </div>
                                 <div class="mt-4 mt-md-5 text-center">
