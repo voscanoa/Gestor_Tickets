@@ -41,6 +41,7 @@
                                         <h5 class="mb-0">Registrar Cuenta</h5>
                                         <p class="text-muted mt-1">Get your free Minia account now.</p>
                                     </div>
+
                                     <form id="mnt_form" class="needs-validation custom-form mt-4 pt-2" novalidate="" action="index.html">
                                         <div class="mb-3">
                                             <label for="user_email" class="form-label">Correo Electronico</label>
@@ -106,8 +107,9 @@
     <!-- pace js -->
     <script src="../../assets/js/pace.min.js"></script>
     <!-- Sweet Alerts js -->
-    <script src="../../assets//js/sweetalert2.min.js"></script>
+    <script src="../../assets/js/sweetalert2.min.js"></script>
     <!-- validation init -->
+    <!-- <script src="../../assets/js/validation.init.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.6.0/validator.min.js"></script>
 
     <script type="text/javascript" src="registro.js"></script>
