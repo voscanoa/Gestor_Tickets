@@ -44,6 +44,11 @@ class Usuario extends Conectar
         $sql->bindValue(2, $user_email);
         $sql->bindValue(3, $user_password);
         $sql->execute();
+
+        $sql1 = "SELECT lastval() AS user_id";
+        $sql1 = $conectar->prepare($sql1);
+        $sql1->execute();
+        return $sql1->fetchAll();
     }
 
     // Metodo que valida si es correo esta registrado
@@ -54,6 +59,18 @@ class Usuario extends Conectar
         $sql = "SELECT * FROM users WHERE user_email = ?";
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $user_email);
+        $sql->execute();
+        return $sql->fetchAll();
+    }
+
+
+    public function get_usuario_id($user_id)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "SELECT * FROM users WHERE user_id = ?";
+        $sql = $conectar->prepare($sql);
+        $sql->bindValue(1, $user_id);
         $sql->execute();
         return $sql->fetchAll();
     }
