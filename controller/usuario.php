@@ -17,4 +17,8 @@ switch ($_GET["op"]) {
             echo "0";
         }
         break;
+
+    case "activar":
+        $usuario->activar_usuario($_POST["user_id"]);
+        break;
 }

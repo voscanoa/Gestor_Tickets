@@ -1,6 +1,9 @@
 <?php
 class Usuario extends Conectar
 {
+    private $key = "GestorTickets";
+    private $cipher = "aes-256-cbc";
+
     // public function login()
     // {
     //     $conectar = parent::conexion();
@@ -63,7 +66,6 @@ class Usuario extends Conectar
         return $sql->fetchAll();
     }
 
-
     public function get_usuario_id($user_id)
     {
         $conectar = parent::conexion();
@@ -71,6 +73,21 @@ class Usuario extends Conectar
         $sql = "SELECT * FROM users WHERE user_id = ?";
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $user_id);
+        $sql->execute();
+        return $sql->fetchAll();
+    }
+
+    public function activar_usuario($user_id)
+    {
+        $iv_dec = substr(base64_decode($user_id), 0, openssl_cipher_iv_length($this->cipher));
+        $cifradoSinIV = substr(base64_decode($user_id), openssl_cipher_iv_length($this->cipher));
+        $textoDecifrado = openssl_decrypt($cifradoSinIV, $this->cipher, $this->key, OPENSSL_RAW_DATA, $iv_dec);
+
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "UPDATE users SET status_id=1, activation_at = NOW() WHERE user_id = ?";
+        $sql = $conectar->prepare($sql);
+        $sql->bindValue(1, $textoDecifrado);
         $sql->execute();
         return $sql->fetchAll();
     }
