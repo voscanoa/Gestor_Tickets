@@ -23,6 +23,7 @@ function isFormValid() {
 function validateEmail() {
   var email = $("#user_email").val();
   var isValid = validator.isEmail(email);
+  // // TODO Modificar apra solo aceptar correo de electroperu
   //   var isValid = /\@electroperu\.com\.pe$/.test(email);
   displayErrorMessage("#user_email", isValid, "Ingrese Correo Electrónico ");
   return isValid;

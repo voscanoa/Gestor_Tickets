@@ -44,7 +44,7 @@
 
                                     <form id="mnt_form" class="needs-validation custom-form mt-4 pt-2" novalidate="" action="index.html">
                                         <div class="mb-3">
-                                            <label for="user_email" class="form-label">Correo Electronico</label>
+                                            <label for="user_email" class="form-label">Correo Electrónico</label>
                                             <input type="email" class="form-control" id="user_email" name="user_email" placeholder="hola@electroperu.com.pe" required="">
                                             <div class="validation-error text-danger">
                                             </div>
