@@ -75,19 +75,24 @@ if (isset($_SESSION["user_id"])) {
                                                     </div>
                                                 </div>
                                                 <!-- Upload -->
-                                                <!-- <div class="col-lg-12">
+                                                <div class="col-lg-12">
 
                                                     <div class="dropzone">
                                                         <div class="dz-default dz-message">
                                                             <button class="dz-button" type="button">
-                                                                <img src="../../assets/image/upload.png" alt="">
+                                                                <img src="../../assets/icons/upload.svg" alt="">
                                                             </button>
-                                                            <div class="dz-message" data-dz-message><span>Arrastra y suelta archivos aquí o haz click para seleccionar archivos <br> Maximo 5 archivos de tipo *.PDF, y solo de peso maximo de 2MB </span></div>
+                                                            <div class="dz-message" data-dz-message>
+                                                                <h4 class="card-title"> Suelta tus archivos aquí o navega
+                                                                </h4>
+                                                                <p class="card-title-desc">Máx. Cantidad de imagenes: <strong>3</strong> <br> Máx. Tamaño de imagen: <strong>2 MB</strong>
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
 
-                                                </div> -->
-                                                <div class="d-flex flex-wrap gap-2 mt-4">
+                                                </div>
+                                                <div class=" d-flex flex-wrap gap-2 mt-4">
                                                     <button type="button" id="btnlimpiar" class="btn btn-secondary waves-effect waves-light">Limpiar</button>
                                                     <button type="submit" id="btnguardar" class="btn btn-primary waves-effect waves-light">Crear</button>
                                                 </div>

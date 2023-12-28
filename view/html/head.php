@@ -3,14 +3,14 @@
 <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
 <meta content="Themesbrand" name="author" />
 
-<!-- dropzone css -->
-<link href="../../assets/css/dropzone.min.css" rel="stylesheet" type="text/css" />
 <!-- Sweet Alert-->
 <link href="../../assets/css/sweetalert2.min.css" rel="stylesheet" type="text/css">
-
+<!-- dropzone css -->
+<link href="../../assets/css/dropzone.min.css" rel="stylesheet" type="text/css">
+<!-- choices css -->
+<link href="../../assets/css/choices.min.css" rel="stylesheet" type="text/css">
 <!-- preloader css -->
 <link rel="stylesheet" href="../../assets/css/preloader.min.css" type="text/css" />
-
 <!-- Bootstrap Css -->
 <link href="../../assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <!-- Icons Css -->

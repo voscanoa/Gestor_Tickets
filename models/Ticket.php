@@ -20,4 +20,16 @@ class Ticket extends Conectar
         $sql1->execute();
         return $sql1->fetchAll(pdo::FETCH_ASSOC);
     }
+
+    public function insert_ticket_detalle($ticket_id, $details_name, $user_id)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "INSERT INTO ticket_details (ticket_id, details_name, user_id) VALUES (?,?,?)";
+        $sql = $conectar->prepare($sql);
+        $sql->bindValue(1, $ticket_id);
+        $sql->bindValue(2, $details_name);
+        $sql->bindValue(3, $user_id);
+        $sql->execute();
+    }
 }
