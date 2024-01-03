@@ -16,7 +16,7 @@ myDropzone.on("maxfilesexceeded", function (file) {
     title: "Gestor de Tickets",
     text: "Solo se permiten un máximo de 3 archivos.",
     icon: "error",
-    confirmButtonColor: "#5156be",
+    confirmButtonColor: "#5156BE",
   });
   myDropzone.removeFile(file);
 });
@@ -27,7 +27,7 @@ myDropzone.on("addedfile", function (file) {
       title: "Gestor de Tickets",
       text: 'El archivo "' + file.name + '" excede el tamaño maximo de 2 MB.',
       icon: "error",
-      confirmButtonColor: "#5156be",
+      confirmButtonColor: "#5156BE",
     });
     myDropzone.removeFile(file);
   }
@@ -44,12 +44,36 @@ myDropzone.on("removedfile", (file) => {
 
 function init() {
   $("#ticket_form").on("submit", function (e) {
-    guardaryeditar(e);
+    guardar(e);
   });
 }
 
-function guardaryeditar(e) {
+function guardar(e) {
   e.preventDefault();
+
+  if (arrImages.length === 0) {
+    Swal.fire({
+      title: "No hay archivos adjuntos, esta seguro de registrar el tramite?",
+      icon: "info",
+      showDenyButton: true,
+      confirmButtonText: "Si",
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        enviarticket();
+      }
+    });
+  } else {
+    enviarticket();
+  }
+}
+
+function enviarticket(e) {
+  $("#btnguardar").prop("disabled", true);
+  $("#btnguardar").html(
+    '<i class="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i>Espere..'
+  );
+
   var formData = new FormData($("#ticket_form")[0]);
 
   var totalfiles = arrImages.length;
@@ -64,8 +88,10 @@ function guardaryeditar(e) {
     data: formData,
     contentType: false,
     processData: false,
-    success: function (datos) {
-      console.log(datos);
+    success: function (data) {
+      $("#ticket_form")[0].reset();
+      Dropzone.forElement(".dropzone").removeAllFiles(true);
+      console.log(data);
       Swal.fire({
         title: "Mesa de Partes",
         html:
@@ -73,8 +99,11 @@ function guardaryeditar(e) {
           data +
           "</strong>",
         icon: "success",
-        confirmButtonColor: "#5156be",
+        confirmButtonColor: "#5156BE",
       });
+
+      $("#btnguardar").prop("disabled", false);
+      $("#btnguardar").html("Guardar");
     },
   });
 }
@@ -84,5 +113,11 @@ $(document).ready(function () {
     $("#category_id").html(data);
   });
 });
+
+$(document).on("click", "#btnlimpiar", function () {
+  $("#ticket_form")[0].reset();
+  Dropzone.forElement(".dropzone").removeAllFiles(true);
+});
+
 console.log("nuevo ticket");
 init();
